@@ -1,4 +1,17 @@
+
 :root {
+    --bg-gradient: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --text-primary: #333;
+    --text-secondary: #555;
+    --accent: #007bff;
+    --ball-bg: radial-gradient(circle at 30% 30%, #f8f9fa, #e9ecef);
+    --ball-shadow: 0 10px 20px rgba(0,0,0,0.1), inset 0 -5px 15px rgba(0,0,0,0.1);
+    --primary-glow: #007bff;
+    --secondary-glow: #0056b3;
+}
+
+[data-theme="dark"] {
     --bg-gradient: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
     --card-bg: rgba(255, 255, 255, 0.03);
     --primary-glow: #00d2ff;
@@ -25,6 +38,7 @@ body {
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
+    transition: background 0.3s, color 0.3s;
 }
 
 .container {
@@ -49,7 +63,7 @@ h1 {
     font-weight: 800;
     margin-bottom: 0.5rem;
     letter-spacing: -0.05em;
-    background: linear-gradient(to bottom, #fff, #888);
+    background: linear-gradient(to bottom, var(--text-primary), #888);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 10px 20px rgba(0, 210, 255, 0.3));
@@ -77,7 +91,7 @@ h1 {
     height: 75px;
     border-radius: 50%;
     background: var(--ball-bg);
-    color: #fff;
+    color: var(--text-primary);
     font-size: 2rem;
     font-weight: 700;
     box-shadow: var(--ball-shadow);
@@ -129,6 +143,49 @@ h1 {
     transform: none;
 }
 
+.contact-form {
+    margin-top: 4rem;
+}
+
+.contact-form h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    letter-spacing: -0.05em;
+    background: linear-gradient(to bottom, var(--text-primary), #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 10px 20px rgba(0, 210, 255, 0.3));
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--card-bg);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.contact-form button {
+    background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+    color: #fff;
+    border: none;
+    padding: 1.5rem 4rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 100px;
+    cursor: pointer;
+    box-shadow: 0 15px 30px rgba(0, 210, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    outline: none;
+}
+
 footer {
     margin-top: 4rem;
     color: var(--text-secondary);
@@ -152,4 +209,61 @@ footer {
     animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     box-shadow: 0 0 30px rgba(0, 210, 255, 0.4), var(--ball-shadow);
     border: 1px solid rgba(0, 210, 255, 0.3);
+}
+
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

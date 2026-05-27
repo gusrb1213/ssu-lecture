@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Lotto Generator</title>
+    <title>프리미엄 로또 번호 생성기</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+    </div>
     <div class="container">
         <header>
-            <h1>Lotto Gold</h1>
-            <p class="subtitle">Your path to fortune begins with a single click</p>
+            <h1>로또 골드</h1>
+            <p class="subtitle">클릭 한 번으로 시작되는 당신의 행운</p>
         </header>
         
         <div class="lotto-numbers">
@@ -25,10 +31,20 @@
             <div class="number">?</div>
         </div>
 
-        <button id="generate">Generate Numbers</button>
+        <button id="generate">번호 생성</button>
+
+        <div class="contact-form">
+            <h2>제휴 문의</h2>
+            <form action="https://formspree.io/f/mwvzwyvn" method="POST">
+                <input type="text" name="name" placeholder="이름" required>
+                <input type="email" name="email" placeholder="이메일" required>
+                <textarea name="message" placeholder="메시지" required></textarea>
+                <button type="submit">보내기</button>
+            </form>
+        </div>
         
         <footer>
-            <p>Good luck!</p>
+            <p>행운을 빌어요!</p>
         </footer>
     </div>
     <script src="main.js"></script>
